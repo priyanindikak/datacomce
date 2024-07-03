@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Employee>
+
+<div class="text-center" style="width: 50%; text-align: center;">
+    <h3>Employee List</h3>
+    <div>
+        <table class="table table-hover">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                <th></th>
+            </tr>
+
+            @foreach (var emp in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => emp.FullName)</td>
+                    <td>
+                        @Html.ActionLink("Salary Information", "ViewInfo", new { empId=emp.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

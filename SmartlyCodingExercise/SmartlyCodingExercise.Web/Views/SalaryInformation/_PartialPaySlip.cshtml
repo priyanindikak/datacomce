@@ -1,0 +1,36 @@
+﻿@model EmployeeSalaryDetails
+
+<div>
+    <h3>@TempData[StringConstantsHelpers.PaySlipHeader]</h3>
+    <p>Year - @TempData[StringConstantsHelpers.TempDataYear]</p>
+    <div style="text-align: center;">
+        <table class="table table-bordered" style="text-align: center;">
+            <tbody>
+                <tr>
+                    <th class="sal-info-item">@Html.DisplayNameFor(model => model.FullName)</th>
+                    <td class="sal-info-item">@Html.DisplayFor(modelItem => Model.FullName)</td>
+                </tr>
+                <tr>
+                    <th class="sal-info-item">@Html.DisplayNameFor(model => model.PayPeriod)</th>
+                    <td class="sal-info-item">@Html.DisplayFor(modelItem => Model.PayPeriod)</td>
+                </tr>
+                <tr>
+                    <th class="sal-info-item">@Html.DisplayNameFor(model => model.GrossIncome)</th>
+                    <td class="sal-info-item">@Html.DisplayFor(modelItem => Model.GrossIncomeDisplay)</td>
+                </tr>
+                <tr>
+                    <th class="sal-info-item">@Html.DisplayNameFor(model => model.IncomeTax)</th>
+                    <td class="sal-info-item">@Html.DisplayFor(modelItem => Model.IncomeTaxDisplay)</td>
+                </tr>
+                <tr>
+                    <th class="sal-info-item">@Html.DisplayNameFor(model => model.NetIncome)</th>
+                    <td class="sal-info-item">@Html.DisplayFor(modelItem => Model.NetIncomeDisplay)</td>
+                </tr>
+                <tr>
+                    <th class="sal-info-item">@Html.DisplayNameFor(model => model.SuperAmount)</th>
+                    <td class="sal-info-item">@Html.DisplayFor(modelItem => Model.SuperAmountDisplay)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

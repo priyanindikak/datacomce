@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Name": "SmartlyCodingExercise.Api\\SmartlyCodingExercise.Api.csproj",
+        "Action": "Start"
+      },
+      {
+        "Name": "SmartlyCodingExercise.Web\\SmartlyCodingExercise.Web.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

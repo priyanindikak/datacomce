@@ -1,0 +1,65 @@
+﻿@model CalculatorViewModel
+
+<div class="text-center" style="width: 50%;">
+
+    @using (Html.BeginForm())
+    {
+        <div class="row calc-form-row">
+            <div class="col-4">@Html.LabelFor(model => model.CalcInputs.FirstName)</div>
+            <div class="col-8">
+                @Html.EditorFor(model => model.CalcInputs.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CalcInputs.FirstName, "Required.", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row calc-form-row">
+            <div class="col-4">@Html.LabelFor(model => model.CalcInputs.LastName)</div>
+            <div class="col-8">
+                @Html.EditorFor(model => model.CalcInputs.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CalcInputs.LastName, "Required.", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row calc-form-row">
+            <div class="col-4">@Html.LabelFor(model => model.CalcInputs.AnnualSalary)</div>
+            <div class="col-8">
+                @Html.EditorFor(model => model.CalcInputs.AnnualSalary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CalcInputs.AnnualSalary, "Should be greater than 0.", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row calc-form-row">
+            <div class="col-4">@Html.LabelFor(model => model.CalcInputs.SuperRate)</div>
+            <div class="col-8">
+                @Html.EditorFor(model => model.CalcInputs.SuperRate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CalcInputs.SuperRate, "Should be 0 - 50.", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row calc-form-row">
+            <div class="col-4">@Html.LabelFor(model => model.CalcInputs.PayPeriod)</div>
+            <div class="col-8">
+                @Html.DropDownListFor(model => model.CalcInputs.PayPeriod, Model.CalcInputs.MonthList, "[Select Pay Period]", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CalcInputs.PayPeriod, "Should be a valid Month.", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row calc-form-row">
+            <div class="col-4"></div>
+            <div class="col-8"><input type="submit" value="Calculate" class="btn btn-primary" /></div>
+        </div>        
+    }
+    @if (Model != null && Model.IsCalculated)
+    {
+        @await Html.PartialAsync("_PartialPaySlip", Model.SalaryDetailsSummary)        
+    }
+</div>
+<style>
+    .calc-form-row {
+        text-align: left;
+        padding-bottom: 10px;
+    }
+
+    .field-validation-valid {
+        display: none;
+    }
+
+    .validation-summary-valid {
+        display: none;
+    }
+</style>
